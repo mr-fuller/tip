@@ -28,3 +28,7 @@ for county in county_fips:
     tract_data = tract_data.append(temp_ct_df,sort=False)
 block_data.to_sql('block_2010',engine, if_exists='replace')
 tract_data.to_sql('tract_2017',engine, if_exists='replace')
+
+conn = psycopg.connection()
+cur = conn.cursor()
+cur.execute()
