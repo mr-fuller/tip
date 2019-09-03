@@ -1,13 +1,14 @@
 from census import Census
 import pandas as pd
 import json
-
+from sqlalchemy import create_engine
 with open('credentials.json') as creds:
     credentials = json.load(creds)
 api_key = credentials['api_key']   # CGR's API key
 pg_username = credentials['pg_username']
 pg_password = credentials['pg_password']
 
+engine = create_engine(f"postgresql://{pg_username}:{pg_password}@localhost/wsosfairhousing")
 c = Census(api_key)
 
 block_data = pd.DataFrame()
